@@ -35,32 +35,3 @@ out/
 
 ### VS Code ###
 .vscode/
-
-### macOS ###
-.DS_Store
-.AppleDouble
-.LSOverride
-
-### Logs ###
-logs/
-*.log
-
-### Environment / Secrets ###
-.env
-.env.*
-!.env.example
-
-### Spring Boot local configuration ###
-application-local.properties
-application-local.yml
-application-local.yaml
-
-### Telegram ###
-telegram-token.txt
-
-### Redis ###
-dump.rdb
-
-### Temporary files ###
-*.tmp
-*.temp
