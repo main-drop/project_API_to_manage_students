@@ -26,7 +26,7 @@ public class StudentCacheService {
         this.objectMapper.registerModule(new JavaTimeModule());
     }
 
-    // SAVE Student
+    // SAVE One Student TO CATCH
     public void save(Long studentId, Student student) {
 
         String key = KEY_PREFIX + studentId;
@@ -34,7 +34,7 @@ public class StudentCacheService {
         redisTemplate.opsForValue().set(
                 key,
                 student,
-                Duration.ofMinutes(10)
+                Duration.ofMinutes(2)
         );
     }
 
@@ -63,7 +63,9 @@ public class StudentCacheService {
         redisTemplate.delete(key);
     }
 
-    // SAVE ALL STUDENTS
+    
+
+    // SAVE ALL STUDENTS TO CATCH
     public void saveAll(List<Student> students) {
         redisTemplate.opsForValue().set(
                 ALL_STUDENTS_KEY,

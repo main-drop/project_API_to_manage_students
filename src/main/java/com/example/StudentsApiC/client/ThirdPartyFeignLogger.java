@@ -178,8 +178,8 @@ public class ThirdPartyFeignLogger extends Logger {
         );
 
         responseLog.put(
-                "durationMs",
-                durationTime
+                "duration",
+                durationTime+"ms"
         );
 
 

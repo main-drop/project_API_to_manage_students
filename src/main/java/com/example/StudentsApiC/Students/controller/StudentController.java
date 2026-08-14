@@ -22,16 +22,12 @@ public class StudentController {
     }
 
     // CREATE STUDEN
-
     @PostMapping
     public ResponseEntity<ApiResponse<Student>> create(
             @Valid @RequestBody StudentRequest request) {
 
-        Student student =
-                studentService.create(request);
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
+        Student student = studentService.create(request);
+        return ResponseEntity.status(HttpStatus.CREATED)
                 .body(
                         new ApiResponse<>(
                                 true,
@@ -42,15 +38,12 @@ public class StudentController {
     }
 
 
-    // =========================================================
     // GET ALL STUDENTS
-    // =========================================================
 
     @GetMapping("/getlist")
     public ResponseEntity<ApiResponse<List<Student>>> findAll() {
 
-        List<Student> students =
-                studentService.findAll();
+        List<Student> students = studentService.findAll();
 
         return ResponseEntity.ok(
                 new ApiResponse<>(
@@ -62,17 +55,13 @@ public class StudentController {
     }
 
 
-    // =========================================================
     // GET STUDENT BY ID
-    // =========================================================
 
     @GetMapping("/getOne/{studentId}")
     public ResponseEntity<ApiResponse<Student>> findById(
             @PathVariable Long studentId) {
 
-        Student student =
-                studentService.findById(studentId);
-
+        Student student = studentService.findById(studentId);
         return ResponseEntity.ok(
                 new ApiResponse<>(
                         true,
@@ -83,20 +72,13 @@ public class StudentController {
     }
 
 
-    // =========================================================
     // UPDATE STUDENT
-    // =========================================================
 
     @PutMapping("/update/{studentId}")
     public ResponseEntity<ApiResponse<Student>> update(
             @PathVariable Long studentId,
             @Valid @RequestBody StudentRequest request) {
-
-        Student student =
-                studentService.update(
-                        studentId,
-                        request
-                );
+        Student student = studentService.update(studentId, request);
 
         return ResponseEntity.ok(
                 new ApiResponse<>(
@@ -108,9 +90,7 @@ public class StudentController {
     }
 
 
-    // =========================================================
     // DELETE STUDENT
-    // =========================================================
 
     @DeleteMapping("/delete/{studentId}")
     public ResponseEntity<ApiResponse<Void>> delete(
@@ -128,9 +108,7 @@ public class StudentController {
     }
 
 
-    // =========================================================
     // THIRD-PARTY API - GET ONE USER
-    // =========================================================
 
     @GetMapping("/third-party/{userId}")
     public ResponseEntity<ApiResponse<Object>> getThirdPartyUser(
@@ -149,15 +127,12 @@ public class StudentController {
     }
 
 
-    // =========================================================
     // THIRD-PARTY API - GET ALL USERS
-    // =========================================================
 
     @GetMapping("/third-party")
     public ResponseEntity<ApiResponse<Object>> getAllThirdPartyUsers() {
 
-        List<Map<String, Object>> data =
-                studentService.getAllThirdPartyUsers();
+        List<Map<String, Object>> data = studentService.getAllThirdPartyUsers();
 
         return ResponseEntity.ok(
                 new ApiResponse<>(
@@ -169,9 +144,7 @@ public class StudentController {
     }
 
 
-    // =========================================================
     // THIRD-PARTY API - CREATE USER
-    // =========================================================
 
     @PostMapping("/third-party")
     public ResponseEntity<ApiResponse<Object>> createThirdPartyUser(

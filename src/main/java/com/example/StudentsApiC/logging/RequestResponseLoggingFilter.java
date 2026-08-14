@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingResponseWrapper;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -36,9 +35,7 @@ public class RequestResponseLoggingFilter
             HttpServletResponse response,
             FilterChain filterChain
     ) throws ServletException, IOException {
-
         long start = System.currentTimeMillis();
-
 
         // REQUEST
 
@@ -52,10 +49,7 @@ public class RequestResponseLoggingFilter
 
         log.info("REQUEST {}", toJson(requestLog));
 
-
-
         // RESPONSE WRAPPER
-
 
         ContentCachingResponseWrapper wrappedResponse = new ContentCachingResponseWrapper(response);
 
@@ -88,12 +82,9 @@ public class RequestResponseLoggingFilter
 
             responseLog.put("status", wrappedResponse.getStatus());
 
-            responseLog.put("durationMs", duration);
-
-
+            responseLog.put("duration", duration +"ms");
 
             // RESPONSE DATA
-
 
             if (!responseBody.isBlank()) {
 
@@ -115,13 +106,10 @@ public class RequestResponseLoggingFilter
                 }
             }
 
-
-
             // LOG RESPONSE
 
 
             log.info("RESPONSE {}", toJson(responseLog));
-
 
 
             // COPY RESPONSE
@@ -130,8 +118,6 @@ public class RequestResponseLoggingFilter
             wrappedResponse.copyBodyToResponse();
         }
     }
-
-
 
     // REMOVE SENSITIVE DATA
 
@@ -148,8 +134,7 @@ public class RequestResponseLoggingFilter
             for (Map.Entry<?, ?> entry :
                     map.entrySet()) {
 
-                String key =
-                        String.valueOf(entry.getKey());
+                String key = String.valueOf(entry.getKey());
 
                 if (isSensitiveField(key)) {
                     continue;
@@ -179,9 +164,7 @@ public class RequestResponseLoggingFilter
     }
 
 
-
     // SENSITIVE FIELDS
-
 
     private boolean isSensitiveField(
             String fieldName
@@ -202,7 +185,6 @@ public class RequestResponseLoggingFilter
             default -> false;
         };
     }
-
 
 
     // OBJECT → JSON

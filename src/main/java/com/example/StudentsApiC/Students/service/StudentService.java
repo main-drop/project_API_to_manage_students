@@ -71,11 +71,9 @@ public class StudentService {
     // THIRD-PARTY API - GET ALL USERS
 
     public List<Map<String, Object>> getAllThirdPartyUsers() {
-
         logger.info("Calling third-party API: get all users");
 
         try {
-
             List<Map<String, Object>> result = thirdPartyClient.getAllUsers();
 
             logger.info("Third-party API response received: totalUsers={}", result.size());
@@ -98,7 +96,6 @@ public class StudentService {
 
     public Map<String, Object> createThirdPartyUser(ThirdPartyUserRequest request) {
         logger.info("THIRD_PARTY_REQUEST: method=POST, path=/users, data={}", request);
-
         try {
 
             Map<String, Object> user = new HashMap<>();
@@ -125,11 +122,8 @@ public class StudentService {
     // CREATE STUDENT
 
     public Student create(StudentRequest request) {
-
         logger.info("Creating new student: email={}", request.getEmail());
-
         try {
-
             Student student = new Student();
             student.setStudentCode("STU-" + System.currentTimeMillis());
             student.setName(request.getName());
@@ -142,14 +136,6 @@ public class StudentService {
             Student savedStudent = studentRepository.save(student);
 
             logger.info("Student created successfully: studentCode={}", savedStudent.getStudentCode());
-
-            /*
-             * We don't have to put the new student into Redis
-             * immediately.
-             *
-             * The cache will be created when GET /{id}
-             * is called.
-             */
 
             return savedStudent;
 
@@ -169,23 +155,18 @@ public class StudentService {
     // GET ALL STUDENTS
 
     public List<Student> findAll() {
-
         logger.info("Getting all students");
-
         try {
-
             // 1. Check Redis
             List<Student> cachedStudents = studentCacheService.getAll();
             if (cachedStudents != null) {
 
                 logger.info("Students found in Redis cache: count={}", cachedStudents.size());
-
                 return cachedStudents;
             }
 
             // 2. Redis MISS → MySQL
             logger.info("Students not found in Redis, querying MySQL");
-
             List<Student> students = studentRepository.findAll();
 
             // 3. Save to Redis
@@ -245,9 +226,9 @@ public class StudentService {
                             });
 
 
-            // =================================================
+
             // 3. SAVE MYSQL RESULT INTO REDIS
-            // =================================================
+
 
             studentCacheService.save(studentId, student);
 
@@ -371,7 +352,6 @@ public class StudentService {
             throw exception;
         }
     }
-
 
     // LOGIN
 
