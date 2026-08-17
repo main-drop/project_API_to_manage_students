@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 @Service
 public class StudentService {
     private static final Logger logger = LoggerFactory.getLogger(StudentService.class);
@@ -66,7 +65,6 @@ public class StudentService {
             throw new RuntimeException("Third-party API failed", exception);
         }
     }
-
 
     // THIRD-PARTY API - GET ALL USERS
 
@@ -124,24 +122,40 @@ public class StudentService {
     public Student create(StudentRequest request) {
         logger.info("Creating new student: email={}", request.getEmail());
         try {
+            // 1. Create Student object
             Student student = new Student();
             student.setStudentCode("STU-" + System.currentTimeMillis());
             student.setName(request.getName());
             student.setGender(request.getGender());
             student.setEmail(request.getEmail());
+            // Encode password before saving
             student.setPassword(passwordEncoder.encode(request.getPassword()));
             student.setPhone(request.getPhone());
             student.setAddress(request.getAddress());
             student.setCreatedAt(LocalDateTime.now());
+
+            // 2. Save to MySQL
             Student savedStudent = studentRepository.save(student);
 
-            logger.info("Student created successfully: studentCode={}", savedStudent.getStudentCode());
+            // 3. Save newly created student to Redis
+            studentCacheService.save(savedStudent.getId(), savedStudent);
+
+            // 4. Invalidate "all students" cache
+            // because the list has changed
+            studentCacheService.deleteAll();
+
+            logger.info(
+                    "Student created successfully: studentId={}, studentCode={}",
+                    savedStudent.getId(),
+                    savedStudent.getStudentCode()
+            );
 
             return savedStudent;
 
         } catch (Exception exception) {
 
-            logger.error("Failed to create student: email={}, error={}",
+            logger.error(
+                    "Failed to create student: email={}, error={}",
                     request.getEmail(),
                     exception.getMessage(),
                     exception
@@ -209,8 +223,6 @@ public class StudentService {
                 return cachedStudent;
             }
 
-
-
             // 2. REDIS MISS → CHECK MYSQL
 
 
@@ -231,6 +243,7 @@ public class StudentService {
 
 
             studentCacheService.save(studentId, student);
+
 
             logger.info("Student cached in Redis: studentId={}", studentId);
 
@@ -295,6 +308,9 @@ public class StudentService {
             // UPDATE REDIS
             studentCacheService.save(studentId, updatedStudent);
 
+            // Invalidate all students cache
+            studentCacheService.deleteAll();
+
             logger.info("Redis cache updated: studentId={}", studentId);
 
 
@@ -331,9 +347,11 @@ public class StudentService {
             studentRepository.delete(student);
 
 
-
             // DELETE FROM REDIS
             studentCacheService.delete(studentId);
+
+            studentCacheService.deleteAll();
+
 
             logger.info("Student removed from Redis: studentId={}", studentId);
 

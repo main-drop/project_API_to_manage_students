@@ -18,8 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class RequestResponseLoggingFilter
-        extends OncePerRequestFilter {
+public class RequestResponseLoggingFilter extends OncePerRequestFilter {
 
     private static final Logger log = LoggerFactory.getLogger(RequestResponseLoggingFilter.class);
 

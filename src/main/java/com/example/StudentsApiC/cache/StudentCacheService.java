@@ -34,7 +34,7 @@ public class StudentCacheService {
         redisTemplate.opsForValue().set(
                 key,
                 student,
-                Duration.ofMinutes(2)
+                Duration.ofMinutes(10)
         );
     }
 
@@ -55,7 +55,7 @@ public class StudentCacheService {
         );
     }
 
-    // DELETE Student
+    // DELETE Student One Student
     public void delete(Long studentId) {
 
         String key = KEY_PREFIX + studentId;
@@ -63,14 +63,12 @@ public class StudentCacheService {
         redisTemplate.delete(key);
     }
 
-    
-
     // SAVE ALL STUDENTS TO CATCH
     public void saveAll(List<Student> students) {
         redisTemplate.opsForValue().set(
                 ALL_STUDENTS_KEY,
                 students,
-                Duration.ofMinutes(10)
+                Duration.ofMinutes(50)
         );
     }
 

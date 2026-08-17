@@ -1,0 +1,515 @@
+2026-08-14 13:24:39 [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 13:24:39 [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 84492 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 13:24:39 [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 13:24:39 [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 13:24:39 [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 13:24:40 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 13:24:40 [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 13:24:40 [] INFO - Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interface.
+2026-08-14 13:24:40 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 13:24:40 [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 13:24:40 [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 13:24:40 [] INFO - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-08-14 13:24:40 [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 13:24:40 [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 13:24:40 [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 13:24:40 [] INFO - Starting service [Tomcat]
+2026-08-14 13:24:40 [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 13:24:40 [] INFO - Root WebApplicationContext: initialization completed in 948 ms
+2026-08-14 13:24:40 [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 13:24:40 [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 13:24:41 [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 13:24:41 [] INFO - HikariPool-1 - Starting...
+2026-08-14 13:24:41 [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36809596
+2026-08-14 13:24:41 [] INFO - HikariPool-1 - Start completed.
+2026-08-14 13:24:41 [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 13:24:41 [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 13:24:41 [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 13:24:41 [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 13:24:42 [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 13:24:42 [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 13:24:42 [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 13:24:42 [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 13:24:42 [] INFO - Started StudentsApiCApplication in 3.349 seconds (process running for 3.777)
+2026-08-14 13:24:48 [] INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-14 13:24:48 [] INFO - Initializing Servlet 'dispatcherServlet'
+2026-08-14 13:24:48 [] INFO - Completed initialization in 1 ms
+2026-08-14 13:24:48 [5938A70B] INFO - REQUEST {"dateTime":"2026-08-14T13:24:48.775023","method":"PUT","path":"/api/students/update/9"}
+2026-08-14 13:24:48 [5938A70B] ERROR- {"event":"VALIDATION_ERROR","field":"password","message":"Password is required"}
+2026-08-14 13:24:48 [5938A70B] WARN - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.example.StudentsApiC.common.response.ApiResponse<com.example.StudentsApiC.Students.entity.Student>> com.example.StudentsApiC.Students.controller.StudentController.update(java.lang.Long,com.example.StudentsApiC.Students.dto.request.StudentRequest): [Field error in object 'studentRequest' on field 'password': rejected value [null]; codes [NotBlank.studentRequest.password,NotBlank.password,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [studentRequest.password,password]; arguments []; default message [password]]; default message [Password is required]] ]
+2026-08-14 13:24:48 [5938A70B] INFO - RESPONSE {"dateTime":"2026-08-14T13:24:48.903735","method":"PUT","path":"/api/students/update/9","status":400,"duration":"129ms","data":{"success":false,"message":"Validation failed","data":{}}}
+2026-08-14 13:25:49 [AA159C3B] INFO - REQUEST {"dateTime":"2026-08-14T13:25:49.189462","method":"PUT","path":"/api/students/update/9"}
+2026-08-14 13:25:49 [AA159C3B] INFO - Updating student: studentId=9
+2026-08-14 13:25:49 [AA159C3B] INFO - Getting student: studentId=9
+2026-08-14 13:25:49 [AA159C3B] INFO - Student not found in Redis, querying MySQL: studentId=9
+2026-08-14 13:25:49 [AA159C3B] INFO - Student cached in Redis: studentId=9
+2026-08-14 13:25:49 [AA159C3B] INFO - Updating password: studentId=9
+2026-08-14 13:25:49 [AA159C3B] INFO - Redis cache updated: studentId=9
+2026-08-14 13:25:49 [AA159C3B] INFO - Student updated successfully: studentId=9
+2026-08-14 13:25:49 [AA159C3B] INFO - RESPONSE {"dateTime":"2026-08-14T13:25:49.630941","method":"PUT","path":"/api/students/update/9","status":200,"duration":"441ms","data":{"success":true,"message":"Student updated successfully","data":{"address":"Phnom Penh","createdAt":"2026-08-07T14:15:09.888329","email":"kkkk@gmail.com","gender":null,"id":9,"name":"KKKK","phone":"012345678","studentCode":"STU-1786086909796","updatedAt":"2026-08-14T13:25:49.601665"}}}
+2026-08-14 14:22:46 [] WARN - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m34s462ms).
+2026-08-14 15:05:26 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 15:05:26 [] INFO - Graceful shutdown complete
+2026-08-14 15:05:26 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 15:05:26 [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 15:05:26 [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-14 15:05:28 [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 15:05:28 [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 26507 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 15:05:28 [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 15:05:28 [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 15:05:28 [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 15:05:28 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 15:05:28 [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 15:05:28 [] INFO - Finished Spring Data repository scanning in 77 ms. Found 1 JPA repository interface.
+2026-08-14 15:05:28 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 15:05:28 [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 15:05:28 [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 15:05:28 [] INFO - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-08-14 15:05:29 [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 15:05:29 [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 15:05:29 [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 15:05:29 [] INFO - Starting service [Tomcat]
+2026-08-14 15:05:29 [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 15:05:29 [] INFO - Root WebApplicationContext: initialization completed in 979 ms
+2026-08-14 15:05:29 [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 15:05:29 [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 15:05:29 [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 15:05:29 [] INFO - HikariPool-1 - Starting...
+2026-08-14 15:05:29 [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f856291
+2026-08-14 15:05:29 [] INFO - HikariPool-1 - Start completed.
+2026-08-14 15:05:30 [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 15:05:30 [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 15:05:30 [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 15:05:30 [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 15:05:30 [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 15:05:30 [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 15:05:31 [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 15:05:31 [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 15:05:31 [] INFO - Started StudentsApiCApplication in 3.397 seconds (process running for 3.833)
+2026-08-14 15:07:25 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 15:07:25 [] INFO - Graceful shutdown complete
+2026-08-14 15:07:25 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 15:07:25 [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 15:07:25 [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-14 15:08:14 [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 15:08:14 [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 28128 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 15:08:14 [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 15:08:14 [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 15:08:14 [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 15:08:15 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 15:08:15 [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 15:08:15 [] INFO - Finished Spring Data repository scanning in 72 ms. Found 1 JPA repository interface.
+2026-08-14 15:08:15 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 15:08:15 [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 15:08:15 [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 15:08:15 [] INFO - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-08-14 15:08:15 [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 15:08:15 [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 15:08:15 [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 15:08:15 [] INFO - Starting service [Tomcat]
+2026-08-14 15:08:15 [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 15:08:15 [] INFO - Root WebApplicationContext: initialization completed in 1032 ms
+2026-08-14 15:08:16 [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 15:08:16 [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 15:08:16 [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 15:08:16 [] INFO - HikariPool-1 - Starting...
+2026-08-14 15:08:16 [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a85c833
+2026-08-14 15:08:16 [] INFO - HikariPool-1 - Start completed.
+2026-08-14 15:08:16 [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 15:08:17 [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 15:08:17 [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 15:08:17 [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 15:08:17 [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 15:08:17 [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 15:08:18 [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 15:08:18 [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 15:08:18 [] INFO - Started StudentsApiCApplication in 3.579 seconds (process running for 4.072)
+2026-08-14 15:52:19 [] INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-14 15:52:19 [] INFO - Initializing Servlet 'dispatcherServlet'
+2026-08-14 15:52:19 [] INFO - Completed initialization in 8 ms
+2026-08-14 15:52:19 [51204CBA] INFO - REQUEST {"dateTime":"2026-08-14T15:52:19.879958","method":"GET","path":"/api/students/getlist"}
+2026-08-14 15:52:19 [51204CBA] INFO - Getting all students
+2026-08-14 15:52:20 [51204CBA] INFO - Students not found in Redis, querying MySQL
+2026-08-14 15:52:20 [51204CBA] INFO - Students cached in Redis: count=9
+2026-08-14 15:52:20 [51204CBA] INFO - RESPONSE {"dateTime":"2026-08-14T15:52:20.277275","method":"GET","path":"/api/students/getlist","status":200,"duration":"398ms","data":{"success":true,"message":"Get students successfully","data":[{"address":"Phnom Penh","createdAt":"2026-08-07T14:15:09.888329","email":"kkkk@gmail.com","gender":null,"id":9,"name":"KKKK","phone":"012345678","studentCode":"STU-1786086909796","updatedAt":"2026-08-14T13:25:49.601665"},{"address":"Phnom Penh","createdAt":"2026-08-07T15:57:18.499653","email":"makara@gmail.com","gender":"Male","id":10,"name":"makara","phone":"012345678","studentCode":"STU-1786093038396","updatedAt":null},{"address":"Phnom Penh","createdAt":"2026-08-07T16:16:13.985029","email":"seyha@gmail.com","gender":"Male","id":11,"name":"seyha","phone":"012345678","studentCode":"STU-1786094173891","updatedAt":null},{"address":"Phnom Penh","createdAt":"2026-08-10T08:41:05.071596","email":"darapa@gmail.com","gender":"Male","id":12,"name":"DaraPa","phone":"012345678","studentCode":"STU-1786326064975","updatedAt":null},{"address":"Phnom Penh","createdAt":"2026-08-10T08:43:54.928362","email":"molika@gmail.com","gender":"famale","id":13,"name":"moloka","phone":"012345678","studentCode":"STU-1786326234835","updatedAt":null},{"address":"Phnom Penh","createdAt":"2026-08-10T08:48:58.701915","email":"bopha@gmail.com","gender":"famale","id":14,"name":"bopha","phone":"012345678","studentCode":"STU-1786326538606","updatedAt":null},{"address":"Phnom Penh","createdAt":"2026-08-10T11:39:45.845703","email":"chetra@gmail.com","gender":"famale","id":15,"name":"chetra","phone":"012345678","studentCode":"STU-1786336785752","updatedAt":"2026-08-10T11:42:34.165444"},{"address":"Phnom Penh","createdAt":"2026-08-11T13:59:15.017064","email":"darasok@gmail.com","gender":"famale","id":18,"name":"darasok","phone":"012345678","studentCode":"STU-1786431554931","updatedAt":null},{"address":"Phnom Penh","createdAt":"2026-08-12T13:53:55.613982","email":"molaka@gmail.com","gender":"famale","id":19,"name":"Molaka","phone":"012345678","studentCode":"STU-1786517635520","updatedAt":null}]}}
+2026-08-14 15:52:26 [74E6DCA0] INFO - REQUEST {"dateTime":"2026-08-14T15:52:26.375817","method":"GET","path":"/api/students/third-party/"}
+2026-08-14 15:52:26 [74E6DCA0] ERROR- {"event":"INTERNAL_SERVER_ERROR","type":"NoResourceFoundException","message":"No static resource api/students/third-party for request '/api/students/third-party/'."}
+2026-08-14 15:52:26 [74E6DCA0] WARN - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/students/third-party for request '/api/students/third-party/'.]
+2026-08-14 15:52:26 [74E6DCA0] INFO - RESPONSE {"dateTime":"2026-08-14T15:52:26.383471","method":"GET","path":"/api/students/third-party/","status":500,"duration":"8ms","data":{"success":false,"message":"Internal server error","data":null}}
+2026-08-14 15:52:29 [196D7B9C] INFO - REQUEST {"dateTime":"2026-08-14T15:52:29.383400","method":"GET","path":"/api/students/third-party"}
+2026-08-14 15:52:29 [196D7B9C] INFO - Calling third-party API: get all users
+2026-08-14 15:52:29 [196D7B9C] INFO - Third-party API response received: totalUsers=10
+2026-08-14 15:52:29 [196D7B9C] INFO - RESPONSE {"dateTime":"2026-08-14T15:52:29.694363","method":"GET","path":"/api/students/third-party","status":200,"duration":"311ms","data":{"success":true,"message":"Third-party API called successfully","data":[{"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lat":"-37.3159","lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}},{"id":2,"name":"Ervin Howell","username":"Antonette","email":"Shanna@melissa.tv","address":{"street":"Victor Plains","suite":"Suite 879","city":"Wisokyburgh","zipcode":"90566-7771","geo":{"lat":"-43.9509","lng":"-34.4618"}},"phone":"010-692-6593 x09125","website":"anastasia.net","company":{"name":"Deckow-Crist","catchPhrase":"Proactive didactic contingency","bs":"synergize scalable supply-chains"}},{"id":3,"name":"Clementine Bauch","username":"Samantha","email":"Nathan@yesenia.net","address":{"street":"Douglas Extension","suite":"Suite 847","city":"McKenziehaven","zipcode":"59590-4157","geo":{"lat":"-68.6102","lng":"-47.0653"}},"phone":"1-463-123-4447","website":"ramiro.info","company":{"name":"Romaguera-Jacobson","catchPhrase":"Face to face bifurcated interface","bs":"e-enable strategic applications"}},{"id":4,"name":"Patricia Lebsack","username":"Karianne","email":"Julianne.OConner@kory.org","address":{"street":"Hoeger Mall","suite":"Apt. 692","city":"South Elvis","zipcode":"53919-4257","geo":{"lat":"29.4572","lng":"-164.2990"}},"phone":"493-170-9623 x156","website":"kale.biz","company":{"name":"Robel-Corkery","catchPhrase":"Multi-tiered zero tolerance productivity","bs":"transition cutting-edge web services"}},{"id":5,"name":"Chelsey Dietrich","username":"Kamren","email":"Lucio_Hettinger@annie.ca","address":{"street":"Skiles Walks","suite":"Suite 351","city":"Roscoeview","zipcode":"33263","geo":{"lat":"-31.8129","lng":"62.5342"}},"phone":"(254)954-1289","website":"demarco.info","company":{"name":"Keebler LLC","catchPhrase":"User-centric fault-tolerant solution","bs":"revolutionize end-to-end systems"}},{"id":6,"name":"Mrs. Dennis Schulist","username":"Leopoldo_Corkery","email":"Karley_Dach@jasper.info","address":{"street":"Norberto Crossing","suite":"Apt. 950","city":"South Christy","zipcode":"23505-1337","geo":{"lat":"-71.4197","lng":"71.7478"}},"phone":"1-477-935-8478 x6430","website":"ola.org","company":{"name":"Considine-Lockman","catchPhrase":"Synchronised bottom-line interface","bs":"e-enable innovative applications"}},{"id":7,"name":"Kurtis Weissnat","username":"Elwyn.Skiles","email":"Telly.Hoeger@billy.biz","address":{"street":"Rex Trail","suite":"Suite 280","city":"Howemouth","zipcode":"58804-1099","geo":{"lat":"24.8918","lng":"21.8984"}},"phone":"210.067.6132","website":"elvis.io","company":{"name":"Johns Group","catchPhrase":"Configurable multimedia task-force","bs":"generate enterprise e-tailers"}},{"id":8,"name":"Nicholas Runolfsdottir V","username":"Maxime_Nienow","email":"Sherwood@rosamond.me","address":{"street":"Ellsworth Summit","suite":"Suite 729","city":"Aliyaview","zipcode":"45169","geo":{"lat":"-14.3990","lng":"-120.7677"}},"phone":"586.493.6943 x140","website":"jacynthe.com","company":{"name":"Abernathy Group","catchPhrase":"Implemented secondary concept","bs":"e-enable extensible e-tailers"}},{"id":9,"name":"Glenna Reichert","username":"Delphine","email":"Chaim_McDermott@dana.io","address":{"street":"Dayna Park","suite":"Suite 449","city":"Bartholomebury","zipcode":"76495-3109","geo":{"lat":"24.6463","lng":"-168.8889"}},"phone":"(775)976-6794 x41206","website":"conrad.com","company":{"name":"Yost and Sons","catchPhrase":"Switchable contextually-based project","bs":"aggregate real-time technologies"}},{"id":10,"name":"Clementina DuBuque","username":"Moriah.Stanton","email":"Rey.Padberg@karina.biz","address":{"street":"Kattie Turnpike","suite":"Suite 198","city":"Lebsackbury","zipcode":"31428-2261","geo":{"lat":"-38.2386","lng":"57.2232"}},"phone":"024-648-3804","website":"ambrose.net","company":{"name":"Hoeger LLC","catchPhrase":"Centralized empowering task-force","bs":"target end-to-end models"}}]}}
+2026-08-14 15:54:55 [] ERROR- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired 30481690 milliseconds ago at 2026-08-14T00:26:54.000Z. Current time: 2026-08-14T08:54:55.690Z. Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:682)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821)
+	at com.example.StudentsApiC.security.JwtService.extractClaim(JwtService.java:55)
+	at com.example.StudentsApiC.security.JwtService.extractUsername(JwtService.java:41)
+	at com.example.StudentsApiC.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:44)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at com.example.StudentsApiC.config.RequestIdFilter.doFilterInternal(RequestIdFilter.java:43)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-08-14 15:54:55 [] ERROR- REQUEST {"url":"/api/students/third-party","method":"GET"}
+2026-08-14 15:54:55 [] ERROR- RESPONSE {"message":"Unauthorized: Please login first","status":401}
+2026-08-14 15:55:35 [101519E4] INFO - REQUEST {"dateTime":"2026-08-14T15:55:35.979761","method":"POST","path":"/api/auth/login"}
+2026-08-14 15:55:36 [101519E4] INFO - Login successful: email=makara@gmail.com, studentCode=STU-1786093038396
+2026-08-14 15:55:36 [101519E4] INFO - RESPONSE {"dateTime":"2026-08-14T15:55:36.203735","method":"POST","path":"/api/auth/login","status":200,"duration":"224ms","data":{"success":true,"message":"Login successful","data":{"studentCode":"STU-1786093038396","name":"makara","email":"makara@gmail.com"}}}
+2026-08-14 15:55:50 [F7FBE184] INFO - REQUEST {"dateTime":"2026-08-14T15:55:50.400292","method":"POST","path":"/api/students/third-party"}
+2026-08-14 15:55:50 [F7FBE184] INFO - THIRD_PARTY_REQUEST: method=POST, path=/users, data=ThirdPartyUserRequest(name=reaksmey, username=smey, email=reaksmey@gmail.com)
+2026-08-14 15:55:50 [F7FBE184] INFO - THIRD_PARTY_RESPONSE: method=POST, path=/users, data={name=reaksmey, email=reaksmey@gmail.com, username=smey, id=11}
+2026-08-14 15:55:50 [F7FBE184] INFO - RESPONSE {"dateTime":"2026-08-14T15:55:50.763406","method":"POST","path":"/api/students/third-party","status":201,"duration":"363ms","data":{"success":true,"message":"Third-party user created successfully","data":{"name":"reaksmey","email":"reaksmey@gmail.com","username":"smey","id":11}}}
+2026-08-14 15:59:35 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 15:59:35 [] INFO - Graceful shutdown complete
+2026-08-14 15:59:35 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 15:59:35 [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 15:59:35 [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-14 15:59:37 [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 15:59:37 [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 49455 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 15:59:37 [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 15:59:37 [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 15:59:37 [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 15:59:38 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 15:59:38 [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 15:59:38 [] INFO - Finished Spring Data repository scanning in 71 ms. Found 1 JPA repository interface.
+2026-08-14 15:59:38 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 15:59:38 [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 15:59:38 [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 15:59:38 [] INFO - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-08-14 15:59:38 [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 15:59:38 [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 15:59:38 [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 15:59:38 [] INFO - Starting service [Tomcat]
+2026-08-14 15:59:38 [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 15:59:38 [] INFO - Root WebApplicationContext: initialization completed in 1003 ms
+2026-08-14 15:59:39 [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 15:59:39 [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 15:59:39 [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 15:59:39 [] INFO - HikariPool-1 - Starting...
+2026-08-14 15:59:39 [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7694fd79
+2026-08-14 15:59:39 [] INFO - HikariPool-1 - Start completed.
+2026-08-14 15:59:39 [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 15:59:40 [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 15:59:40 [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 15:59:40 [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 15:59:40 [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 15:59:40 [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 15:59:40 [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 15:59:40 [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 15:59:40 [] INFO - Started StudentsApiCApplication in 3.541 seconds (process running for 4.064)
+2026-08-14 16:03:39 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 16:03:39 [] INFO - Graceful shutdown complete
+2026-08-14 16:03:39 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:03:39 [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 16:03:39 [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-14 16:03:40 [background-preinit] [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 16:03:40 [restartedMain] [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 51173 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 16:03:40 [restartedMain] [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 16:03:40 [restartedMain] [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 16:03:40 [restartedMain] [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 16:03:41 [restartedMain] [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:03:41 [restartedMain] [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 16:03:41 [restartedMain] [] INFO - Finished Spring Data repository scanning in 70 ms. Found 1 JPA repository interface.
+2026-08-14 16:03:41 [restartedMain] [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:03:41 [restartedMain] [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 16:03:41 [restartedMain] [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 16:03:41 [restartedMain] [] INFO - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-08-14 16:03:41 [restartedMain] [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 16:03:41 [restartedMain] [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 16:03:41 [restartedMain] [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:03:41 [restartedMain] [] INFO - Starting service [Tomcat]
+2026-08-14 16:03:41 [restartedMain] [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 16:03:41 [restartedMain] [] INFO - Root WebApplicationContext: initialization completed in 947 ms
+2026-08-14 16:03:41 [restartedMain] [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 16:03:41 [restartedMain] [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 16:03:42 [restartedMain] [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 16:03:42 [restartedMain] [] INFO - HikariPool-1 - Starting...
+2026-08-14 16:03:42 [restartedMain] [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@20a5d061
+2026-08-14 16:03:42 [restartedMain] [] INFO - HikariPool-1 - Start completed.
+2026-08-14 16:03:42 [restartedMain] [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 16:03:42 [restartedMain] [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 16:03:42 [restartedMain] [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:03:42 [restartedMain] [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 16:03:43 [restartedMain] [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 16:03:43 [restartedMain] [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 16:03:43 [restartedMain] [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:03:43 [restartedMain] [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 16:03:43 [restartedMain] [] INFO - Started StudentsApiCApplication in 3.265 seconds (process running for 3.65)
+2026-08-14 16:05:25 [SpringApplicationShutdownHook] [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 16:05:25 [tomcat-shutdown] [] INFO - Graceful shutdown complete
+2026-08-14 16:05:25 [SpringApplicationShutdownHook] [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:05:25 [SpringApplicationShutdownHook] [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 16:05:25 [SpringApplicationShutdownHook] [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-14 16:05:26 [background-preinit] [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 16:05:26 [restartedMain] [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 51930 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 16:05:26 [restartedMain] [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 16:05:26 [restartedMain] [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 16:05:26 [restartedMain] [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 16:05:27 [restartedMain] [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:05:27 [restartedMain] [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 16:05:27 [restartedMain] [] INFO - Finished Spring Data repository scanning in 73 ms. Found 1 JPA repository interface.
+2026-08-14 16:05:27 [restartedMain] [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:05:27 [restartedMain] [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 16:05:27 [restartedMain] [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 16:05:27 [restartedMain] [] INFO - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-08-14 16:05:27 [restartedMain] [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 16:05:27 [restartedMain] [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 16:05:27 [restartedMain] [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:05:27 [restartedMain] [] INFO - Starting service [Tomcat]
+2026-08-14 16:05:27 [restartedMain] [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 16:05:27 [restartedMain] [] INFO - Root WebApplicationContext: initialization completed in 975 ms
+2026-08-14 16:05:27 [restartedMain] [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 16:05:27 [restartedMain] [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 16:05:28 [restartedMain] [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 16:05:28 [restartedMain] [] INFO - HikariPool-1 - Starting...
+2026-08-14 16:05:28 [restartedMain] [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a5277cb
+2026-08-14 16:05:28 [restartedMain] [] INFO - HikariPool-1 - Start completed.
+2026-08-14 16:05:28 [restartedMain] [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 16:05:28 [restartedMain] [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 16:05:28 [restartedMain] [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:05:28 [restartedMain] [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 16:05:29 [restartedMain] [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 16:05:29 [restartedMain] [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 16:05:29 [restartedMain] [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:05:29 [restartedMain] [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 16:05:29 [restartedMain] [] INFO - Started StudentsApiCApplication in 3.383 seconds (process running for 3.76)
+2026-08-14 16:17:58 [SpringApplicationShutdownHook] [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 16:17:58 [tomcat-shutdown] [] INFO - Graceful shutdown complete
+2026-08-14 16:17:59 [SpringApplicationShutdownHook] [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:17:59 [SpringApplicationShutdownHook] [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 16:17:59 [SpringApplicationShutdownHook] [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-14 16:20:59 [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 16:20:59 [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 59115 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 16:20:59 [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 16:20:59 [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 16:20:59 [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 16:20:59 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:20:59 [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 16:20:59 [] INFO - Finished Spring Data repository scanning in 67 ms. Found 1 JPA repository interface.
+2026-08-14 16:20:59 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:20:59 [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 16:20:59 [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 16:20:59 [] INFO - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-08-14 16:21:00 [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 16:21:00 [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 16:21:00 [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:21:00 [] INFO - Starting service [Tomcat]
+2026-08-14 16:21:00 [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 16:21:00 [] INFO - Root WebApplicationContext: initialization completed in 960 ms
+2026-08-14 16:21:00 [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 16:21:00 [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 16:21:00 [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 16:21:00 [] INFO - HikariPool-1 - Starting...
+2026-08-14 16:21:00 [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@680891eb
+2026-08-14 16:21:01 [] INFO - HikariPool-1 - Start completed.
+2026-08-14 16:21:01 [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 16:21:01 [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 16:21:01 [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:21:01 [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 16:21:01 [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 16:21:01 [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 16:21:02 [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:21:02 [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 16:21:02 [] INFO - Started StudentsApiCApplication in 3.353 seconds (process running for 3.781)
+2026-08-14 16:25:01 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 16:25:01 [] INFO - Graceful shutdown complete
+2026-08-14 16:25:01 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:25:01 [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 16:25:01 [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-14 16:34:18 [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-14 16:34:18 [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 64789 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-14 16:34:18 [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 16:34:18 [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-14 16:34:18 [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-14 16:34:18 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:34:18 [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 16:34:18 [] INFO - Finished Spring Data repository scanning in 77 ms. Found 1 JPA repository interface.
+2026-08-14 16:34:18 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-14 16:34:18 [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-14 16:34:18 [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-14 16:34:18 [] INFO - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-08-14 16:34:18 [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-14 16:34:19 [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-14 16:34:19 [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:34:19 [] INFO - Starting service [Tomcat]
+2026-08-14 16:34:19 [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-14 16:34:19 [] INFO - Root WebApplicationContext: initialization completed in 1016 ms
+2026-08-14 16:34:19 [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-14 16:34:19 [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-14 16:34:19 [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 16:34:19 [] INFO - HikariPool-1 - Starting...
+2026-08-14 16:34:19 [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@73663e9f
+2026-08-14 16:34:19 [] INFO - HikariPool-1 - Start completed.
+2026-08-14 16:34:19 [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-14 16:34:20 [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 16:34:20 [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:34:20 [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 16:34:20 [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-14 16:34:20 [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-14 16:34:21 [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-14 16:34:21 [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-14 16:34:21 [] INFO - Started StudentsApiCApplication in 3.55 seconds (process running for 4.208)
+2026-08-14 16:34:51 [] INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-14 16:34:51 [] INFO - Initializing Servlet 'dispatcherServlet'
+2026-08-14 16:34:51 [] INFO - Completed initialization in 5 ms
+2026-08-14 16:34:52 [1ED81501] INFO - REQUEST {"dateTime":"2026-08-14T16:34:52.623162","method":"GET","path":"/api/students/third-party"}
+2026-08-14 16:35:16 [1ED81501] INFO - Calling third-party API: get all users
+2026-08-14 16:35:55 [] WARN - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m5s436ms).
+2026-08-14 16:37:30 [1ED81501] INFO - Third-party API response received: totalUsers=10
+2026-08-14 16:37:32 [1ED81501] INFO - RESPONSE {"dateTime":"2026-08-14T16:37:32.624594","method":"GET","path":"/api/students/third-party","status":200,"duration":"160001ms","data":{"success":true,"message":"Third-party API called successfully","data":[{"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lat":"-37.3159","lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}},{"id":2,"name":"Ervin Howell","username":"Antonette","email":"Shanna@melissa.tv","address":{"street":"Victor Plains","suite":"Suite 879","city":"Wisokyburgh","zipcode":"90566-7771","geo":{"lat":"-43.9509","lng":"-34.4618"}},"phone":"010-692-6593 x09125","website":"anastasia.net","company":{"name":"Deckow-Crist","catchPhrase":"Proactive didactic contingency","bs":"synergize scalable supply-chains"}},{"id":3,"name":"Clementine Bauch","username":"Samantha","email":"Nathan@yesenia.net","address":{"street":"Douglas Extension","suite":"Suite 847","city":"McKenziehaven","zipcode":"59590-4157","geo":{"lat":"-68.6102","lng":"-47.0653"}},"phone":"1-463-123-4447","website":"ramiro.info","company":{"name":"Romaguera-Jacobson","catchPhrase":"Face to face bifurcated interface","bs":"e-enable strategic applications"}},{"id":4,"name":"Patricia Lebsack","username":"Karianne","email":"Julianne.OConner@kory.org","address":{"street":"Hoeger Mall","suite":"Apt. 692","city":"South Elvis","zipcode":"53919-4257","geo":{"lat":"29.4572","lng":"-164.2990"}},"phone":"493-170-9623 x156","website":"kale.biz","company":{"name":"Robel-Corkery","catchPhrase":"Multi-tiered zero tolerance productivity","bs":"transition cutting-edge web services"}},{"id":5,"name":"Chelsey Dietrich","username":"Kamren","email":"Lucio_Hettinger@annie.ca","address":{"street":"Skiles Walks","suite":"Suite 351","city":"Roscoeview","zipcode":"33263","geo":{"lat":"-31.8129","lng":"62.5342"}},"phone":"(254)954-1289","website":"demarco.info","company":{"name":"Keebler LLC","catchPhrase":"User-centric fault-tolerant solution","bs":"revolutionize end-to-end systems"}},{"id":6,"name":"Mrs. Dennis Schulist","username":"Leopoldo_Corkery","email":"Karley_Dach@jasper.info","address":{"street":"Norberto Crossing","suite":"Apt. 950","city":"South Christy","zipcode":"23505-1337","geo":{"lat":"-71.4197","lng":"71.7478"}},"phone":"1-477-935-8478 x6430","website":"ola.org","company":{"name":"Considine-Lockman","catchPhrase":"Synchronised bottom-line interface","bs":"e-enable innovative applications"}},{"id":7,"name":"Kurtis Weissnat","username":"Elwyn.Skiles","email":"Telly.Hoeger@billy.biz","address":{"street":"Rex Trail","suite":"Suite 280","city":"Howemouth","zipcode":"58804-1099","geo":{"lat":"24.8918","lng":"21.8984"}},"phone":"210.067.6132","website":"elvis.io","company":{"name":"Johns Group","catchPhrase":"Configurable multimedia task-force","bs":"generate enterprise e-tailers"}},{"id":8,"name":"Nicholas Runolfsdottir V","username":"Maxime_Nienow","email":"Sherwood@rosamond.me","address":{"street":"Ellsworth Summit","suite":"Suite 729","city":"Aliyaview","zipcode":"45169","geo":{"lat":"-14.3990","lng":"-120.7677"}},"phone":"586.493.6943 x140","website":"jacynthe.com","company":{"name":"Abernathy Group","catchPhrase":"Implemented secondary concept","bs":"e-enable extensible e-tailers"}},{"id":9,"name":"Glenna Reichert","username":"Delphine","email":"Chaim_McDermott@dana.io","address":{"street":"Dayna Park","suite":"Suite 449","city":"Bartholomebury","zipcode":"76495-3109","geo":{"lat":"24.6463","lng":"-168.8889"}},"phone":"(775)976-6794 x41206","website":"conrad.com","company":{"name":"Yost and Sons","catchPhrase":"Switchable contextually-based project","bs":"aggregate real-time technologies"}},{"id":10,"name":"Clementina DuBuque","username":"Moriah.Stanton","email":"Rey.Padberg@karina.biz","address":{"street":"Kattie Turnpike","suite":"Suite 198","city":"Lebsackbury","zipcode":"31428-2261","geo":{"lat":"-38.2386","lng":"57.2232"}},"phone":"024-648-3804","website":"ambrose.net","company":{"name":"Hoeger LLC","catchPhrase":"Centralized empowering task-force","bs":"target end-to-end models"}}]}}
+2026-08-14 16:37:33 [] WARN - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m38s534ms).
+2026-08-14 16:37:36 [9738F19A] INFO - REQUEST {"dateTime":"2026-08-14T16:37:36.086790","method":"GET","path":"/api/students/third-party"}
+2026-08-14 16:37:51 [9738F19A] INFO - Calling third-party API: get all users
+2026-08-14 16:37:57 [9738F19A] INFO - Third-party API response received: totalUsers=10
+2026-08-14 16:39:39 [] WARN - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m5s543ms).
+2026-08-14 16:39:39 [9738F19A] INFO - RESPONSE {"dateTime":"2026-08-14T16:39:39.555832","method":"GET","path":"/api/students/third-party","status":200,"duration":"123469ms","data":{"success":true,"message":"Third-party API called successfully","data":[{"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lat":"-37.3159","lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}},{"id":2,"name":"Ervin Howell","username":"Antonette","email":"Shanna@melissa.tv","address":{"street":"Victor Plains","suite":"Suite 879","city":"Wisokyburgh","zipcode":"90566-7771","geo":{"lat":"-43.9509","lng":"-34.4618"}},"phone":"010-692-6593 x09125","website":"anastasia.net","company":{"name":"Deckow-Crist","catchPhrase":"Proactive didactic contingency","bs":"synergize scalable supply-chains"}},{"id":3,"name":"Clementine Bauch","username":"Samantha","email":"Nathan@yesenia.net","address":{"street":"Douglas Extension","suite":"Suite 847","city":"McKenziehaven","zipcode":"59590-4157","geo":{"lat":"-68.6102","lng":"-47.0653"}},"phone":"1-463-123-4447","website":"ramiro.info","company":{"name":"Romaguera-Jacobson","catchPhrase":"Face to face bifurcated interface","bs":"e-enable strategic applications"}},{"id":4,"name":"Patricia Lebsack","username":"Karianne","email":"Julianne.OConner@kory.org","address":{"street":"Hoeger Mall","suite":"Apt. 692","city":"South Elvis","zipcode":"53919-4257","geo":{"lat":"29.4572","lng":"-164.2990"}},"phone":"493-170-9623 x156","website":"kale.biz","company":{"name":"Robel-Corkery","catchPhrase":"Multi-tiered zero tolerance productivity","bs":"transition cutting-edge web services"}},{"id":5,"name":"Chelsey Dietrich","username":"Kamren","email":"Lucio_Hettinger@annie.ca","address":{"street":"Skiles Walks","suite":"Suite 351","city":"Roscoeview","zipcode":"33263","geo":{"lat":"-31.8129","lng":"62.5342"}},"phone":"(254)954-1289","website":"demarco.info","company":{"name":"Keebler LLC","catchPhrase":"User-centric fault-tolerant solution","bs":"revolutionize end-to-end systems"}},{"id":6,"name":"Mrs. Dennis Schulist","username":"Leopoldo_Corkery","email":"Karley_Dach@jasper.info","address":{"street":"Norberto Crossing","suite":"Apt. 950","city":"South Christy","zipcode":"23505-1337","geo":{"lat":"-71.4197","lng":"71.7478"}},"phone":"1-477-935-8478 x6430","website":"ola.org","company":{"name":"Considine-Lockman","catchPhrase":"Synchronised bottom-line interface","bs":"e-enable innovative applications"}},{"id":7,"name":"Kurtis Weissnat","username":"Elwyn.Skiles","email":"Telly.Hoeger@billy.biz","address":{"street":"Rex Trail","suite":"Suite 280","city":"Howemouth","zipcode":"58804-1099","geo":{"lat":"24.8918","lng":"21.8984"}},"phone":"210.067.6132","website":"elvis.io","company":{"name":"Johns Group","catchPhrase":"Configurable multimedia task-force","bs":"generate enterprise e-tailers"}},{"id":8,"name":"Nicholas Runolfsdottir V","username":"Maxime_Nienow","email":"Sherwood@rosamond.me","address":{"street":"Ellsworth Summit","suite":"Suite 729","city":"Aliyaview","zipcode":"45169","geo":{"lat":"-14.3990","lng":"-120.7677"}},"phone":"586.493.6943 x140","website":"jacynthe.com","company":{"name":"Abernathy Group","catchPhrase":"Implemented secondary concept","bs":"e-enable extensible e-tailers"}},{"id":9,"name":"Glenna Reichert","username":"Delphine","email":"Chaim_McDermott@dana.io","address":{"street":"Dayna Park","suite":"Suite 449","city":"Bartholomebury","zipcode":"76495-3109","geo":{"lat":"24.6463","lng":"-168.8889"}},"phone":"(775)976-6794 x41206","website":"conrad.com","company":{"name":"Yost and Sons","catchPhrase":"Switchable contextually-based project","bs":"aggregate real-time technologies"}},{"id":10,"name":"Clementina DuBuque","username":"Moriah.Stanton","email":"Rey.Padberg@karina.biz","address":{"street":"Kattie Turnpike","suite":"Suite 198","city":"Lebsackbury","zipcode":"31428-2261","geo":{"lat":"-38.2386","lng":"57.2232"}},"phone":"024-648-3804","website":"ambrose.net","company":{"name":"Hoeger LLC","catchPhrase":"Centralized empowering task-force","bs":"target end-to-end models"}}]}}
+2026-08-14 16:39:39 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-14 16:39:39 [] INFO - Graceful shutdown complete
+2026-08-14 16:39:39 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 16:39:39 [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-14 16:39:39 [] INFO - HikariPool-1 - Shutdown completed.
