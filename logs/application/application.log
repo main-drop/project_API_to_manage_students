@@ -1,5 +1,59 @@
-2026-08-17 11:40:28 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-17 11:40:29 [] INFO - Graceful shutdown complete
-2026-08-17 11:40:29 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-17 11:40:29 [] INFO - HikariPool-1 - Shutdown initiated...
-2026-08-17 11:40:29 [] INFO - HikariPool-1 - Shutdown completed.
+2026-08-19 07:44:30 [] INFO - HV000001: Hibernate Validator 9.1.0.Final
+2026-08-19 07:44:30 [] INFO - Starting StudentsApiCApplication using Java 17.0.15 with PID 95053 (/Users/renthairath/Downloads/StudentsApiC/build/classes/java/main started by renthairath in /Users/renthairath/Downloads/StudentsApiC)
+2026-08-19 07:44:30 [] INFO - No active profile set, falling back to 1 default profile: "default"
+2026-08-19 07:44:30 [] INFO - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-19 07:44:30 [] INFO - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-19 07:44:31 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-19 07:44:31 [] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-19 07:44:31 [] INFO - Finished Spring Data repository scanning in 68 ms. Found 1 JPA repository interface.
+2026-08-19 07:44:31 [] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-19 07:44:31 [] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-19 07:44:31 [] INFO - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.StudentsApiC.Students.repository.StudentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-19 07:44:31 [] INFO - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-08-19 07:44:31 [] INFO - BeanFactory id=48ca0b53-89f2-3ab3-98e1-69c48add1f6b
+2026-08-19 07:44:31 [] INFO - Tomcat initialized with port 8080 (http)
+2026-08-19 07:44:31 [] INFO - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-19 07:44:31 [] INFO - Starting service [Tomcat]
+2026-08-19 07:44:31 [] INFO - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-19 07:44:31 [] INFO - Root WebApplicationContext: initialization completed in 920 ms
+2026-08-19 07:44:31 [] INFO - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-19 07:44:31 [] INFO - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-19 07:44:31 [] INFO - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-19 07:44:32 [] INFO - HikariPool-1 - Starting...
+2026-08-19 07:44:32 [] INFO - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a2fa4b2
+2026-08-19 07:44:32 [] INFO - HikariPool-1 - Start completed.
+2026-08-19 07:44:32 [] INFO - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/students_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.7.1
+	Default catalog/schema: students_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-19 07:44:32 [] INFO - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-19 07:44:32 [] INFO - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-19 07:44:32 [] INFO - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-19 07:44:32 [] WARN - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-19 07:44:32 [] WARN - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-08-19 07:44:33 [] INFO - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-19 07:44:33 [] INFO - Tomcat started on port 8080 (http) with context path '/'
+2026-08-19 07:44:33 [] INFO - Started StudentsApiCApplication in 3.143 seconds (process running for 3.524)
+2026-08-19 07:44:58 [] INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-19 07:44:58 [] INFO - Initializing Servlet 'dispatcherServlet'
+2026-08-19 07:44:58 [] INFO - Completed initialization in 1 ms
+2026-08-19 07:44:58 [838912C4] WARN - Login failed: invalid password, email=vanly@gmail.com
+2026-08-19 07:44:58 [838912C4] ERROR- {"event":"RUNTIME_EXCEPTION","type":"RuntimeException","message":"Invalid email or password"}
+2026-08-19 07:44:58 [838912C4] WARN - Resolved [java.lang.RuntimeException: Invalid email or password]
+2026-08-19 07:44:58 [838912C4] INFO - REQUEST {"dateTime":"2026-08-19T07:44:58.509762","method":"POST","path":"/api/auth/login","request":{"email":"vanly@gmail.com"}}
+2026-08-19 07:44:58 [838912C4] INFO - RESPONSE {"dateTime":"2026-08-19T07:44:58.510262","method":"POST","path":"/api/auth/login","status":400,"duration":"459ms","body":{"success":false,"message":"Invalid email or password","data":null}}
+2026-08-19 07:45:55 [DF854727] INFO - REQUEST {"dateTime":"2026-08-19T07:45:55.440715","method":"POST","path":"/api/auth/login","request":{"studentCode":"STU-1786517635520","email":"vanly@gmail.com"}}
+2026-08-19 07:45:55 [DF854727] INFO - RESPONSE {"dateTime":"2026-08-19T07:45:55.441080","method":"POST","path":"/api/auth/login","status":200,"duration":"147ms","body":{"success":true,"message":"Login successful","data":{"studentCode":"STU-1786517635520","name":"vanly","email":"vanly@gmail.com"}}}
+2026-08-19 07:47:14 [] INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-19 07:47:14 [] INFO - Graceful shutdown complete
+2026-08-19 07:47:14 [] INFO - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-19 07:47:14 [] INFO - HikariPool-1 - Shutdown initiated...
+2026-08-19 07:47:14 [] INFO - HikariPool-1 - Shutdown completed.

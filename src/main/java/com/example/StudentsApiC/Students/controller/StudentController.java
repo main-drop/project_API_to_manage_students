@@ -21,7 +21,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    // CREATE STUDEN
+    // CREATE STUDENT
     @PostMapping
     public ResponseEntity<ApiResponse<Student>> create(
             @Valid @RequestBody StudentRequest request) {

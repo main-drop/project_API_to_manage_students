@@ -375,27 +375,51 @@ public class StudentService {
 
     public LoginResponse login(LoginRequest request) {
 
-        Student student = studentRepository.findByEmail(request.getEmail()).orElse(null);
+        Student student =
+                studentRepository
+                        .findByEmail(request.getEmail())
+                        .orElse(null);
 
         if (student == null) {
 
-            logger.warn("Login failed: user does not exist, email={}", request.getEmail());
+            logger.warn(
+                    "Login failed: user does not exist, email={}",
+                    request.getEmail()
+            );
 
-            throw new RuntimeException("Invalid email or password");
+            throw new RuntimeException(
+                    "Invalid email or password"
+            );
         }
 
         boolean passwordMatches =
-                passwordEncoder.matches(request.getPassword(), student.getPassword());
+                passwordEncoder.matches(
+                        request.getPassword(),
+                        student.getPassword()
+                );
 
         if (!passwordMatches) {
-            logger.warn("Login failed: invalid password, email={}", request.getEmail());
-            throw new RuntimeException("Invalid email or password");
+
+            logger.warn(
+                    "Login failed: invalid password, email={}",
+                    request.getEmail()
+            );
+
+            throw new RuntimeException(
+                    "Invalid email or password"
+            );
         }
 
-        String token = jwtService.generateToken(student.getEmail());
+        String token =
+                jwtService.generateToken(
+                        student.getEmail()
+                );
 
-        logger.info("Login successful: email={}, studentCode={}", student.getEmail(), student.getStudentCode());
-
+//        logger.info(
+//                "Login successful: email={}, studentCode={}",
+//                student.getEmail(),
+//                student.getStudentCode()
+//        );
 
         return new LoginResponse(
                 token,
