@@ -22,6 +22,7 @@ public interface ThirdPartyClient {
     // READ - GET ONE
     @GetMapping("/{id}")
     Map<String, Object> getUser(
+//            @RequestParam("_delay") int delayInMilliseconds
             @PathVariable("id") Integer id
     );
 

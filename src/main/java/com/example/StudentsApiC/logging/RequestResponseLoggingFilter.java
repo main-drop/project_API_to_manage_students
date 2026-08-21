@@ -1,5 +1,7 @@
 package com.example.StudentsApiC.logging;
 
+import com.example.StudentsApiC.Students.entity.Student;
+import com.example.StudentsApiC.Students.repository.StudentRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
@@ -8,6 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingRequestWrapper;
@@ -27,9 +31,15 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
             LoggerFactory.getLogger(RequestResponseLoggingFilter.class);
 
     private final ObjectMapper objectMapper;
+    private final StudentRepository studentRepository;
 
-    public RequestResponseLoggingFilter(ObjectMapper objectMapper) {
+
+    public RequestResponseLoggingFilter(
+            ObjectMapper objectMapper,
+            StudentRepository studentRepository
+    ) {
         this.objectMapper = objectMapper;
+        this.studentRepository = studentRepository;
     }
 
     @Override
@@ -66,7 +76,6 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
             long duration =
                     System.currentTimeMillis() - start;
 
-
             // =====================================
             // REQUEST BODY
             // =====================================
@@ -99,7 +108,6 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                     requestData = requestBody;
                 }
             }
-
 
             // =====================================
             // RESPONSE BODY
@@ -137,7 +145,6 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                 }
             }
 
-
             // =====================================
             // BUILD REQUEST LOG
             // =====================================
@@ -150,6 +157,28 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                     LocalDateTime.now().toString()
             );
 
+            // =====================================
+            // CURRENT USER
+            // =====================================
+
+            Map<String, Object> userLog =
+                    getCurrentUser();
+
+            if (request.getRequestURI().equals("/api/auth/login")) {
+
+                Map<String, Object> loginUser =
+                        getLoginUser(responseData);
+
+                if (!loginUser.isEmpty()) {
+                    userLog = loginUser;
+                }
+            }
+
+            requestLog.put(
+                    "user",
+                    userLog
+            );
+
             requestLog.put(
                     "method",
                     request.getMethod()
@@ -160,73 +189,16 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                     request.getRequestURI()
             );
 
-
             // =====================================
-            // LOGIN SPECIAL CASE
+            // REQUEST BODY
             // =====================================
 
-            if (request.getRequestURI().equals("/api/auth/login")
-                    && responseData instanceof Map<?, ?> responseMap) {
-
-                Object data =
-                        responseMap.get("data");
-
-                if (data instanceof Map<?, ?> dataMap) {
-
-                    Map<String, Object> loginRequest =
-                            new LinkedHashMap<>();
-
-                    Object studentCode =
-                            dataMap.get("studentCode");
-
-                    Object email =
-                            dataMap.get("email");
-
-                    if (studentCode != null) {
-
-                        loginRequest.put(
-                                "studentCode",
-                                studentCode
-                        );
-                    }
-
-                    if (email != null) {
-
-                        loginRequest.put(
-                                "email",
-                                email
-                        );
-                    }
-
-                    requestLog.put(
-                            "request",
-                            loginRequest
-                    );
-
-                } else {
-
-                    requestLog.put(
-                            "request",
-                            requestData != null
-                                    ? requestData
-                                    : new LinkedHashMap<>()
-                    );
-                }
-
-            } else {
-
-                // =====================================
-                // NORMAL REQUEST
-                // =====================================
-
-                requestLog.put(
-                        "request",
-                        requestData != null
-                                ? requestData
-                                : new LinkedHashMap<>()
-                );
-            }
-
+            requestLog.put(
+                    "body",
+                    requestData != null
+                            ? requestData
+                            : new LinkedHashMap<>()
+            );
 
             // =====================================
             // LOG REQUEST
@@ -236,7 +208,6 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                     "REQUEST {}",
                     toJson(requestLog)
             );
-
 
             // =====================================
             // BUILD RESPONSE LOG
@@ -275,7 +246,6 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                     responseData
             );
 
-
             // =====================================
             // LOG RESPONSE
             // =====================================
@@ -285,13 +255,109 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                     toJson(responseLog)
             );
 
-
             // =====================================
             // COPY RESPONSE BACK TO CLIENT
             // =====================================
 
             wrappedResponse.copyBodyToResponse();
         }
+    }
+
+
+    // =====================================
+    // GET CURRENT AUTHENTICATED USER
+    // =====================================
+
+    private Map<String, Object> getCurrentUser() {
+
+        Map<String, Object> userLog =
+                new LinkedHashMap<>();
+
+        Authentication authentication =
+                SecurityContextHolder
+                        .getContext()
+                        .getAuthentication();
+
+        Object principal = authentication.getPrincipal();
+
+        if (principal instanceof Student student) {
+
+            userLog.put(
+                    "studentCode",
+                    student.getStudentCode()
+            );
+
+            userLog.put(
+                    "name",
+                    student.getName()
+            );
+
+            userLog.put(
+                    "email",
+                    student.getEmail()
+            );
+        }
+
+        return userLog;
+    }
+
+
+    // =====================================
+    // GET USER FROM LOGIN RESPONSE
+    // =====================================
+
+    private Map<String, Object> getLoginUser(
+            Object responseData
+    ) {
+
+        Map<String, Object> userLog =
+                new LinkedHashMap<>();
+
+        if (!(responseData instanceof Map<?, ?> responseMap)) {
+            return userLog;
+        }
+
+        Object data =
+                responseMap.get("data");
+
+        if (!(data instanceof Map<?, ?> dataMap)) {
+            return userLog;
+        }
+
+        Object studentCode =
+                dataMap.get("studentCode");
+
+        Object name =
+                dataMap.get("name");
+
+        Object email =
+                dataMap.get("email");
+
+        if (studentCode != null) {
+
+            userLog.put(
+                    "studentCode",
+                    studentCode
+            );
+        }
+
+        if (name != null) {
+
+            userLog.put(
+                    "name",
+                    name
+            );
+        }
+
+        if (email != null) {
+
+            userLog.put(
+                    "email",
+                    email
+            );
+        }
+
+        return userLog;
     }
 
 
@@ -331,14 +397,12 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
             return result;
         }
 
-
         if (data instanceof List<?> list) {
 
             return list.stream()
                     .map(this::removeSensitiveData)
                     .toList();
         }
-
 
         return data;
     }
